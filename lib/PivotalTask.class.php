@@ -8,7 +8,7 @@
  * @license    http://creativecommons.org/licenses/by-sa/3.0/
  * @link       https://github.com/mephir/PivotalConnector
  */
-class PivotalTask {
+class PivotalTask extends BasePivotalItem {
   protected $provider = null;
 
   public function __construct(ProviderInterface $provider)
@@ -22,6 +22,21 @@ class PivotalTask {
   }
 
   public function delete()
+  {
+    //
+  }
+
+  public function isComplete()
+  {
+    //
+  }
+
+  public function complete()
+  {
+    //
+  }
+
+  public function uncomplete()
   {
     //
   }

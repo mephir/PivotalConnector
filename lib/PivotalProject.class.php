@@ -8,7 +8,7 @@
  * @license    http://creativecommons.org/licenses/by-sa/3.0/
  * @link       https://github.com/mephir/PivotalConnector
  */
-class PivotalProject {
+class PivotalProject extends BasePivotalItem {
   protected $provider = null;
   protected $id = null;
 

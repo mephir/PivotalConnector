@@ -8,7 +8,7 @@
  * @license    http://creativecommons.org/licenses/by-sa/3.0/
  * @link       https://github.com/mephir/PivotalConnector
  */
-class PivotalMember {
+class PivotalMember extends BasePivotalItem {
   const ROLE_OWNER = 'Owner';
   const ROLE_MEMEBER = 'Member';
 

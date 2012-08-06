@@ -8,7 +8,7 @@
  * @license    http://creativecommons.org/licenses/by-sa/3.0/
  * @link       https://github.com/mephir/PivotalConnector
  */
-class PivotalStory {
+class PivotalStory extends BasePivotalItem {
   protected $provider = null;
 
   public function __construct(ProviderInterface $provider)
