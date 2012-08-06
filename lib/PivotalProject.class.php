@@ -1,6 +1,6 @@
 <?php
 /**
- * Pivotal Project - class keeping providing support for project
+ * Pivotal Project - provide project actions
  *
  * @category   Library
  * @package    PivotalProject
