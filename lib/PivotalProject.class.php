@@ -9,11 +9,12 @@
  * @link       https://github.com/mephir/PivotalConnector
  */
 class PivotalProject {
-  protected $connector = null;
+  protected $provider = null;
+  protected $id = null;
 
-  public function __construct(PivotalConnector $connector)
+  public function __construct(ProviderInterface $provider)
   {
-    $this->connector = $connector;
+    $this->provider = $provider;
   }
 
   public function getMembers()
@@ -67,6 +68,21 @@ class PivotalProject {
   }
 
   public function deliverAllFinished()
+  {
+    //
+  }
+
+  public function getActivity($limit = 10)
+  {
+    //
+  }
+
+  public function getActivitySince($date, $limit = 10)
+  {
+    //
+  }
+
+  public function getActivityNewerThanVersion($version, $limit = 10)
   {
     //
   }

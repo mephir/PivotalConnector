@@ -44,4 +44,19 @@ class PivotalConnector {
   {
     //
   }
+
+  public function getActivity($limit = 10)
+  {
+    //
+  }
+
+  public function getActivitySince($date, $limit = 10)
+  {
+    //
+  }
+
+  public function getActivityNewerThanVersion($version, $limit = 10)
+  {
+    //
+  }
 }
