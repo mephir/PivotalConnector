@@ -3,7 +3,8 @@
  * Pivotal Member - provide member actions
  *
  * @category   Library
- * @package    PivotalMember
+ * @package    PivotalConnector
+ * @subpackage items
  * @author     Pawel Wilk <pwilkmielno@gmail.com>
  * @license    http://creativecommons.org/licenses/by-sa/3.0/
  * @link       https://github.com/mephir/PivotalConnector

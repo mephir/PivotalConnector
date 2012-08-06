@@ -3,10 +3,13 @@
  * Pivotal Base Item - Class providing basic behaviors for all pivotal items like project, story, task etc...
  *
  * @category   Library
- * @package    BasePivotalItem
+ * @package    PivotalConnector
+ * @subpackage items
  * @author     Pawel Wilk <pwilkmielno@gmail.com>
  * @license    http://creativecommons.org/licenses/by-sa/3.0/
  * @link       https://github.com/mephir/PivotalConnector
+ *
+ * @abstract
  */
 abstract class BasePivotalItem {
   protected $provider = null;

@@ -3,7 +3,8 @@
  * Pivotal Task - provide task actions
  *
  * @category   Library
- * @package    PivotalTask
+ * @package    PivotalConnector
+ * @subpackage items
  * @author     Pawel Wilk <pwilkmielno@gmail.com>
  * @license    http://creativecommons.org/licenses/by-sa/3.0/
  * @link       https://github.com/mephir/PivotalConnector
