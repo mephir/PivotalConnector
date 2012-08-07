@@ -9,3 +9,5 @@
 
 require_once('cli/cliAutoload.class.php');
 cliAutoload::getInstance()->register();
+
+var_dump($argv);

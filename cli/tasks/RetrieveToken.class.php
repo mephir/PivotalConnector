@@ -1,4 +1,4 @@
 <?php
-class RetrieveToken extends BaseTask {
+class RetrieveToken extends BasePivotalConnectorTask {
   //
 }
