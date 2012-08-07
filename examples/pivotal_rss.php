@@ -39,6 +39,7 @@ foreach ($activities as $activity)
   $guid = $item->addChild('guid', $activity->get('id'));
   $guid->addAttribute('isPermaLink', 'false');
   $item->addChild('author', $activity->get('author'));
+  $item->addChild('category', $activity->get('event_type'));
 }
 
 ob_start();
