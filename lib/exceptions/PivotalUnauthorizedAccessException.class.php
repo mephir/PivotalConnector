@@ -1,4 +1,4 @@
 <?php
-class PivotalUnauthorizedAccessException extends Exception {
+class PivotalUnauthorizedAccessException extends PivotalProviderException {
   //
 }

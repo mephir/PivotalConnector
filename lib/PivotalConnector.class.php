@@ -30,9 +30,28 @@ class PivotalConnector {
    */
   public function retrieveToken($username, $password, $method = 0)
   {
-    $provider = $this->getProvider();
-    $provider->enableSSL()
+    if (!is_null($this->token))
+    {
+      return $this->token;
+    }
 
+    $provider = $this->getProvider();
+    $provider->enableSSL();
+    $provider->setResource('/tokens/active');
+    if ($method == self::RETRIEVE_TOKEN_BASIC)
+    {
+      $provider->setMethod(pcProvider::METHOD_GET);
+      $provider->setBasicAuth($username, $password);
+    }
+    else
+    {
+      $provider->setMethod(pcProvider::METHOD_POST);
+      $provider->setParam('username', $username);
+      $provider->setParam('password', $password);
+    }
+
+    $result = $provider->execute();
+    var_dump($result);
   }
 
   public function getProjects()
