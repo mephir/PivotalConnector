@@ -10,3 +10,11 @@
  */
 
 include_once('config.php');
+require_once(PIVOTAL_CONNECTOR_LIB.'/pcAutoload.class.php');
+
+pcAutoload::getInstance()->register();
+
+$pivotal = new PivotalConnector(new pcCurlProvider(), PIVOTAL_TOKEN);
+
+$activities = $pivotal->getActivity(ACTIVITY_LIMIT);
+

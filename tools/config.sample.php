@@ -9,4 +9,7 @@
  */
 
 define('PIVOTAL_TOKEN', ''); //API token for pivotal access, token could be generated on https://www.pivotaltracker.com/profile
-define('SSL_ENABLED', true);
+define('SSL_ENABLED', true); //SSL transmission, host isn't verify
+define('ACTIVITY_LIMIT', 10); //Limit of retrieved activities
+
+define('PIVOTAL_CONNECTOR_LIB', dirname(__FILE__) . '../lib');
