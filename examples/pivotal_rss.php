@@ -29,10 +29,15 @@ foreach ($activities as $activity)
   $stories = $activity->getStories();
   if (count($stories) > 0)
   {
-    $item->addChild('url', (string) $stories[0]->story->url);
-    $item->addChild('guid', (string) $stories[0]->story->url);
+    $item->addChild('link', (string) $stories[0]->story->url);
+  }
+  else
+  {
+    $item->addChild('ling', 'http://www.pivotaltracker.com/projects/' . $activity->get('project_id'));
   }
   $item->addChild('pubDate', $activity->get('occurred_at'));
+  $guid = $item->addChild('guid', $activity->get('id'));
+  $guid->addAttribute('isPermaLink', 'false');
   $item->addChild('author', $activity->get('author'));
 }
 
