@@ -83,7 +83,13 @@ class PivotalConnector {
 
     $result = simplexml_load_string($response);
 
-    return $result;
+    $output = array();
+    foreach ($result as $r)
+    {
+      $output[] = new PivotalActivity($this->getProvider(), $r);
+    }
+
+    return $output;
   }
 
   public function getActivitySince($date, $limit = 10)

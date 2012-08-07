@@ -17,7 +17,7 @@ abstract class BasePivotalItem {
   protected $_new = true;
   protected $_dirty = false;
 
-  public function __construct(ProviderInterface $provider)
+  public function __construct(pcProvider $provider)
   {
     $this->provider = $provider;
   }
@@ -25,6 +25,7 @@ abstract class BasePivotalItem {
   public function set($key, $value)
   {
     $this->_data[$key] = $value;
+    $this->_dirty = true;
   }
 
   public function get($key)
