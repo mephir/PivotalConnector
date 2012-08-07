@@ -18,4 +18,25 @@ $pivotal = new PivotalConnector(new pcCurlProvider(), PIVOTAL_TOKEN);
 
 $activities = $pivotal->getActivity(ACTIVITY_LIMIT);
 
-var_dump($activities);
+$rss = new SimpleXMLElement("<rss></rss>");
+$rss->addAttribute('version', '2.0');
+$channel = $rss->addChild('channel');
+foreach ($activities as $activity)
+{
+  $item = $channel->addChild('item');
+  $item->addChild('title', $activity->get('description'));
+  $item->addChild('description', $activity->get('description'));
+  $stories = $activity->getStories();
+  if (count($stories) > 0)
+  {
+    $item->addChild('url', (string) $stories[0]->story->url);
+    $item->addChild('guid', (string) $stories[0]->story->url);
+  }
+  $item->addChild('pubDate', $activity->get('occurred_at'));
+  $item->addChild('author', $activity->get('author'));
+}
+
+ob_start();
+ob_end_clean();
+header('Content-type: application/rss+xml');
+echo $rss->asXml();

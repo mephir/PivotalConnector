@@ -1,7 +1,7 @@
 <?php
 class PivotalActivity extends BasePivotalItem {
   protected $project = null;
-  protected $stories = array();
+  protected $stories = null;
   private $xml = null;
 
   public function __construct(pcProvider $provider, SimpleXMLElement $xml = null)
@@ -30,7 +30,15 @@ class PivotalActivity extends BasePivotalItem {
 
   public function getStories()
   {
-    //
+    return $this->xml->stories;
+
+    if (is_null($this->stories))
+    {
+      $output = array();
+      //@todo: retrieving stories
+      $this->stories = $output;
+    }
+    return $this->stories;
   }
 
   public function __toString()

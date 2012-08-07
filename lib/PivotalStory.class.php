@@ -10,11 +10,18 @@
  * @link       https://github.com/mephir/PivotalConnector
  */
 class PivotalStory extends BasePivotalItem {
-  protected $provider = null;
+  private $xml = null;
 
-  public function __construct(ProviderInterface $provider)
+  public function __construct(ProviderInterface $provider, SimpleXMLElement $xml = null)
   {
-    $this->provider = $provider;
+    parent::__construct($provider);
+
+//    if (!is_null($xml))
+//    {
+//      $this->set('id', (string) $xml->id);
+//      $this->set('project_id', (string) $xml->project_id);
+//      $this->xml = $xml;
+//    }
   }
 
   public function getTask($task_id)
