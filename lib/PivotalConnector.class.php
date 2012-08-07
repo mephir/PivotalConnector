@@ -79,7 +79,9 @@ class PivotalConnector {
     $provider->setResource('/activities');
     $provider->setParam('limit', $limit);
     $provider->setHeader('X-TrackerToken', $this->token);
-    $result = $provider->execute();
+    $response = $provider->execute();
+
+    $result = simplexml_load_string($response);
 
     return $result;
   }
