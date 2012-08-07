@@ -1,4 +1,7 @@
 <?php
-class pcCurlProvider implements pcProviderInterface {
-  //
+class pcCurlProvider extends pcProvider {
+  public function execute()
+  {
+    //
+  }
 }

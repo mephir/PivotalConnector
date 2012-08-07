@@ -16,7 +16,7 @@ class PivotalConnector {
   protected $provider = null;
   protected $token = null;
 
-  public function __construct(pcProviderInterface $provider, $token = null)
+  public function __construct(pcProvider $provider, $token = null)
   {
     $this->provider = $provider;
     if (!is_null($token))
@@ -30,7 +30,9 @@ class PivotalConnector {
    */
   public function retrieveToken($username, $password, $method = 0)
   {
-    //
+    $provider = $this->getProvider();
+    $provider->enableSSL()
+
   }
 
   public function getProjects()
@@ -61,5 +63,10 @@ class PivotalConnector {
   public function getActivityNewerThanVersion($version, $limit = 10)
   {
     //
+  }
+
+  public function getProvider()
+  {
+    return $this->provider;
   }
 }

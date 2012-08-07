@@ -1,4 +1,4 @@
 <?php
-class PivotalException {
+abstract class PivotalException extends Exception {
   //
 }
