@@ -13,7 +13,7 @@ class PivotalActivity extends BasePivotalItem {
       $this->set('id', (string)$xml->id);
       $this->set('version', (string)$xml->version);
       $this->set('event_type', (string)$xml->event_type);
-      $this->set('occured_at', (string)$xml->occured_at);
+      $this->set('occurred_at', (string)$xml->occurred_at);
       $this->set('author', (string)$xml->author);
       $this->set('project_id', (string)$xml->project_id);
       $this->set('description', (string)$xml->description);
@@ -31,5 +31,10 @@ class PivotalActivity extends BasePivotalItem {
   public function getStories()
   {
     //
+  }
+
+  public function __toString()
+  {
+    return $this->get('occurred_at') . ' - ' . $this->get('description');
   }
 }
