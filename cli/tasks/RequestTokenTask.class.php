@@ -12,7 +12,7 @@ class RequestTokenTask extends BasePivotalConnectorTask {
 
     try
     {
-      $token = $pc->retrieveToken($this->getOption('username'), $this->getOption('password'));
+      $user = $pc->retrieveToken($this->getOption('username'), $this->getOption('password'));
     }
     catch(PivotalException $e)
     {
@@ -20,7 +20,7 @@ class RequestTokenTask extends BasePivotalConnectorTask {
       return;
     }
 
-    printf('Your token: %s', $token);
+    printf($this->getOption('output', "Your token: %s\n"), $user->getToken());
   }
 
   public function help()

@@ -51,7 +51,9 @@ class PivotalConnector {
     }
 
     $result = $provider->execute();
-    var_dump($result);
+
+    $response = simplexml_load_string($result);
+    return new PivotalUser($response->id, $response->guid);
   }
 
   public function getProjects()
