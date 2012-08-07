@@ -16,7 +16,7 @@ class PivotalConnector {
   protected $provider = null;
   protected $token = null;
 
-  public function __construct(ProviderInterface $provider, $token = null)
+  public function __construct(pcProviderInterface $provider, $token = null)
   {
     $this->provider = $provider;
     if (!is_null($token))
@@ -25,6 +25,9 @@ class PivotalConnector {
     }
   }
 
+  /**
+   * https://www.pivotaltracker.com/help/api?version=v3#retrieve_token
+   */
   public function retrieveToken($username, $password, $method = 0)
   {
     //

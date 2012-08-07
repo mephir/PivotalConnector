@@ -10,4 +10,8 @@
 require_once('cli/cliAutoload.class.php');
 cliAutoload::getInstance()->register();
 
-var_dump($argv);
+$task = explode(':', $argv[1]);
+$className = ucfirst($task[0]).ucfirst($task[1]).'Task';
+
+$command = new $className(array_slice($argv,2));
+$command->execute();
