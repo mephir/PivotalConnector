@@ -34,12 +34,20 @@ abstract class pcProvider {
   public function getUrl()
   {
     $url = $this->ssl_enabled?'https://':'http://';
-    return $url . $this->url . $this->getResource();
+
+    $url .= $this->url . $this->getResource();
+
+    if ($this->getMethod() == self::METHOD_GET && count($this->params) > 0)
+    {
+      $url .= '?' . $this->getUrlifyParams();
+    }
+
+    return $url;
   }
 
   public function setHeader($name, $value)
   {
-    $this->headers[$name] = $values;
+    $this->headers[$name] = $value;
   }
 
   public function getHeader($name)
@@ -115,7 +123,12 @@ abstract class pcProvider {
   {
     $fields_string = '';
     foreach($this->params as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-    rtrim($fields_string,'&');
+    rtrim($fields_string,"&");
     return $fields_string;
+  }
+
+  public function getHeaders()
+  {
+    return $this->headers;
   }
 }

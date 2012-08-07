@@ -36,7 +36,7 @@ class PivotalConnector {
     }
 
     $provider = $this->getProvider();
-    $provider->enableSSL();
+    $provider->enableSSL(); //token could be retrieved onyl with secure connection
     $provider->setResource('/tokens/active');
     if ($method == self::RETRIEVE_TOKEN_BASIC)
     {
@@ -71,9 +71,17 @@ class PivotalConnector {
     //
   }
 
+  //https://www.pivotaltracker.com/help/api?version=v3#get_all_activity
   public function getActivity($limit = 10)
   {
-    //
+    $provider = $this->getProvider();
+    $provider->setMethod(pcProvider::METHOD_GET);
+    $provider->setResource('/activities');
+    $provider->setParam('limit', $limit);
+    $provider->setHeader('X-TrackerToken', $this->token);
+    $result = $provider->execute();
+
+    return $result;
   }
 
   public function getActivitySince($date, $limit = 10)

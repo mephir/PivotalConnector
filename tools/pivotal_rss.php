@@ -18,3 +18,4 @@ $pivotal = new PivotalConnector(new pcCurlProvider(), PIVOTAL_TOKEN);
 
 $activities = $pivotal->getActivity(ACTIVITY_LIMIT);
 
+var_dump($activities);

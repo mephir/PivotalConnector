@@ -36,6 +36,11 @@ class pcCurlProvider extends pcProvider {
       curl_setopt($curl, CURLOPT_POSTFIELDS, $this->getUrlifyParams());
     }
 
+    if (count($this->getHeaders()) > 0)
+    {
+      curl_setopt($curl, CURLOPT_HTTPHEADER, $this->getHeaders());
+    }
+
     $response = curl_exec($curl);
 
     $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
@@ -50,5 +55,17 @@ class pcCurlProvider extends pcProvider {
     }
     curl_close($curl);
     return $response;
+  }
+
+  public function getHeaders()
+  {
+    $headers = parent::getHeaders();
+
+    $output = array();
+    foreach ($headers as $name => $value)
+    {
+      $output[] = $name . ': ' . $value;
+    }
+    return $output;
   }
 }
